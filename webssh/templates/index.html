@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> WebSSH </title>
+    <title> Web123SSH </title>
     <link href="static/img/favicon.png" rel="icon" type="image/png">
     <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="static/css/xterm.min.css" rel="stylesheet" type="text/css"/>
@@ -44,11 +44,11 @@
         <div class="row">
           <div class="col">
             <label for="Hostname">Host123name</label>
-            <input class="form-control" type="text" id="hostname" name="hostname" value="" required>
+            <input class="form-control" type="text" id="hostname" name="hostname" value="192.168.50.219" readonly>
           </div>
           <div class="col">
             <label for="Port">Port</label>
-            <input class="form-control" type="number" id="port" name="port" placeholder="22" value="" min=1 max=65535>
+            <input class="form-control" type="number" id="port" name="port" placeholder="22" value="22" min=1 max=65535 readonly>
           </div>
         </div>
         <div class="row">
@@ -61,7 +61,7 @@
             <input class="form-control" type="password" id="password" name="password" value="">
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col">
             <label for="Username">Private Key</label>
             <input class="form-control" type="file" id="privatekey" name="privatekey" value="">
@@ -78,7 +78,7 @@
           </div>
           <div class="col">
           </div>
-        </div>
+        </div> -->
         <input type="hidden" id="term" name="term" value="xterm-256color">
         {% module xsrf_form_html() %}
         <button type="submit" class="btn btn-primary">Connect</button>
