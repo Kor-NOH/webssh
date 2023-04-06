@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import io
 import json
 import logging
@@ -429,12 +430,15 @@ class IndexHandler(MixinHandler, tornado.web.RequestHandler):
             try:
                 _, stdout, _ = ssh.exec_command(command,
                                                 get_pty=True,
-                                                timeout=1)
+                                                timeout=10)
+
             except paramiko.SSHException as exc:
                 logging.info(str(exc))
             else:
                 try:
-                    data = stdout.read()
+                    print("this?")
+                    data = stdout.read()        #이 새끼가 문제네 이 새끼가
+                    print("this?")
                 except socket.timeout:
                     pass
                 else:

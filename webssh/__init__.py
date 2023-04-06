@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 from webssh._version import __version__, __version_info__
 

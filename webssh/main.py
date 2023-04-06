@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 import logging
 import tornado.web
 import tornado.ioloop
+import os
 
 from tornado.options import options
 from webssh import handler
@@ -41,6 +43,18 @@ def app_listen(app, port, address, server_settings):
 
 
 def main():
+    # 변경하려는 디렉토리 경로 입력
+    dir_path = 'webssh'
+
+    # 디렉토리 내의 모든 파일에 대해 인코딩 변경
+    for filename in os.listdir(dir_path):
+        if filename.endswith('.py'):
+            file_path = os.path.join(dir_path, filename)
+            with open(file_path, 'r', encoding='utf-8') as f:
+                contents = f.read()
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write('# -*- coding: utf-8 -*-\n' + contents)
+
     options.parse_command_line()
     check_encoding_setting(options.encoding)
     loop = tornado.ioloop.IOLoop.current()
